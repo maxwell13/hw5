@@ -1,0 +1,22 @@
+public class  bubbleMain{
+  
+    public static void main(String[] args) {
+  bubble list= new bubble();
+ list.addNode(4);
+ list.addNode(2);
+ list.addNode(5);
+ list.addNode(3);
+ list.addNode(1);
+ 
+ list.printList();
+ System.out.println("///////");
+ list.bubbleSort();  
+ list.printList();   
+    
+    }
+ 
+    
+    
+    
+   
+}

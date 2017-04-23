@@ -1,0 +1,167 @@
+import java.util.*;
+
+
+public class bubble
+{
+private int id;
+private int listSize;
+private Node pre;     // sentinel before first item
+private Node post;    // sentinel after last item
+
+public bubble() {
+        pre  = new Node();
+        post = new Node();
+        pre.next = post;
+        post.prev = pre;
+    }
+
+private class Node {
+        private int item;
+        private Node next;
+        private Node prev;
+    }
+  
+public void addNode(int item)
+{    
+        Node last = post.prev;
+        Node temp = new Node();
+        temp.item = item;
+        temp.next = post;
+        temp.prev = last;
+        post.prev = temp;
+        last.next = temp;
+        listSize++;
+}
+ 
+public void printList()
+{
+  Node temp=pre;
+  System.out.print(temp);
+  while(temp.next!=null)
+  {System.out.println(temp.next.item);  
+    temp=temp.next;
+  }
+}  
+public void bubbleSort(){
+   Node temp=pre;
+   Node hold=temp;
+
+  boolean change=true;
+  int i;
+  int j;
+  
+  while(change)
+  //for(j=0; j<10; j++)
+  {change=false; 
+    temp=pre;
+   for(i=0; i<listSize-1; i++)
+   {
+    while(temp.next!=null)
+      
+    {if(temp.item > temp.next.item)      
+      {
+      //System.out.println(temp.item + " > " + temp.next.item);
+       hold.item=temp.item;
+       temp.item=temp.next.item;
+       temp.next.item=hold.item;
+     // System.out.println(temp.item + " < " + temp.next.item);
+       change=true;}
+ // System.out.println("the next node to check is " + temp.next.item);
+   temp=temp.next;
+    }
+   }
+ }
+}
+
+}
+
+/*
+private void swap(Node n1, Node n2)
+{
+    Node b1, b2, a1, a2;
+    System.out.println("Swapping n1: " + n1.item + " with n2: " + n2.item);
+    b1 = n2.prev;
+    if (b1 == n1) // handle adjacent nodes
+        b1 = n2;
+    a1 = n2.next;
+
+    b2 = n1.prev;
+    if (b2 == n2) // handle adjacent nodes
+        b2 = n1;
+    a2 = n1.next;
+
+    // swap
+
+    n1.prev=b1;
+    n1.next=a1;
+
+    n2.prev=b2;
+    n2.next=a2;
+
+    b1.next=n1;
+    a1.prev=n1;
+
+    b2.next=n2;
+    a2.prev=n2;
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+    
+    /*
+     * 
+     * 
+     *   private void swapWithPrevious(Node node) {
+   if(post.prev == null) { // first node
+       return;
+   }
+
+   Node p = node.prev;
+   Node pp = p.prev;
+   Node n = node.next;
+   if(pp != null) {
+       pp.next = node;
+   }
+   node.prev = pp;
+   node.next = p;
+   p.prev= node;
+   p.next = n;
+   if(n != null) {
+       post.prev = p;
+   }
+     * 
+     * 
+     * 
+     * public static void bubbleSort(DoubleLinkedList list) //static method used to sort the linked list using bubble sort {
+      int i = 0;
+      Node currentNode = list.head;
+      Node auxNode;
+      int foundChange = 1;
+      while(foundChange) {
+        foundChange = 0;
+        for(i=0; i<list.getSize()-1; i++) {
+          if (currentNode.getData() > currentNode.getNext().getData()) {
+            auxNode.setData(currentNode.getData());
+            currentNode.setData(currentNode.getNext.getData());
+            currentNode.getNext.setData(auxNode.getData());
+            foundChange = 1;
+          }
+          currentNode = currentNode.getNext();
+        }
+
+}
+    */
+    
+    
+    
+    
+    
+    
+ 
+
